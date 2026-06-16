@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Problem Rank",
-  description: "Get latest problems",
+  title: "ProblemRank — Discover and rank real business problems",
+  description: "Validate and rank real-world business problems before building solutions.",
 };
 
 export default function RootLayout({
