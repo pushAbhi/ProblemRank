@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-brand: #3b82f6;
+  --color-brand-foreground: #561ff2;
+
+  /* Surfaces */
+  --color-background: #f4f4f9;
+  --color-secondary: #f3f4f6;
+
+  /* Typography */
+  --color-foreground: #501fef;
+  --color-muted-foreground: #5b6e90;
+
+  /* Components */
+  --background-image-hero-gradient: linear-gradient(90deg, #6366f1, #f43f5e);
+}

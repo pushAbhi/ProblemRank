@@ -33,7 +33,7 @@ const problems = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f9fbfd]">
+    <div className="min-h-screen bg-secondary">
       <Navbar />
       <HeroBanner />
 
@@ -43,7 +43,7 @@ export default function Home() {
           <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Choose a problem area</h1>
           <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
 
-          <div className="mt-6 flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
+          <div className="mt-5 flex gap-3 overflow-x-auto pb-2 pt-2 scrollbar-thin">
             {categories.map((c) => (
               <CategoryCard key={c.label} {...c} />
             ))}

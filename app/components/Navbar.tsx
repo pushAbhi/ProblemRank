@@ -1,4 +1,5 @@
 import { Search, ChevronDown } from "lucide-react";
+import Image from "next/image"
 
 const navItems = ["Problems", "Categories", "Industries", "Leaderboard"];
 
@@ -7,9 +8,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex shrink-0 items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient shadow-glow">
-            <span className="font-display text-lg font-black text-brand-foreground">P</span>
-          </div>
+          <Image src="/logo.svg" alt="logo" width={35} height={35} />
           <span className="font-display text-lg font-extrabold tracking-tight">ProblemRank</span>
         </a>
 
@@ -17,27 +16,27 @@ export default function Navbar() {
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="search"
-            placeholder="Search problems (⌘ + K)"
-            className="h-10 w-full rounded-full border border-border bg-secondary/60 pl-10 pr-4 text-sm outline-none transition focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/15"
+            placeholder="Search problems"
+            className="h-10 w-full rounded-2xl shadow bg-background pl-10 pr-4 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/15"
           />
         </div>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
-            <a key={item} href="#" className="text-sm font-medium text-foreground/70 transition hover:text-foreground">
+            <a key={item} href="#" className="text-sm font-bold transition hover:text-foreground">
               {item}
             </a>
           ))}
-          <button className="flex items-center gap-1 text-sm font-medium text-foreground/70 transition hover:text-foreground">
+          <button className="flex items-center gap-1 text-sm font-bold transition hover:text-foreground">
             Resources <ChevronDown className="h-4 w-4" />
           </button>
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
-          <button className="hidden rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-secondary sm:inline-flex">
+          <button className="hidden rounded-2xl border border-border px-4 py-2 text-sm font-bold text-foreground transition sm:inline-flex hover:bg-foreground hover:text-secondary hover:cursor-pointer">
             Submit a problem
           </button>
-          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold text-brand-foreground shadow-glow transition hover:opacity-95">
+          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer">
             Sign up
           </button>
         </div>
