@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import HeroBanner from "./components/HeroBanner";
 import { CategoryCard } from "./components/CategoryCard";
 import { ProblemRow } from "./components/ProblemRow";
-import { ElementType } from "react";
+import CategoryDropdown from "./components/CategoryDropDown";
 
 interface Category {
   icon: LucideIcon;
@@ -42,7 +42,6 @@ const problems = [
 ];
 
 const mainCategories = categories.slice(0, 5);
-const moreCategories = categories.slice(5);
 
 export default function Home() {
   return (
@@ -56,14 +55,11 @@ export default function Home() {
           <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Choose a problem area</h1>
           <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
 
-          <div className="mt-5 flex gap-3 overflow-x-auto pb-2 pt-2 scrollbar-thin">
+          <div className="mt-5 flex gap-3 overflow-y-visible pb-2 pt-2 scrollbar-thin">
             {mainCategories.map((c) => (
               <CategoryCard key={c.label} {...c} />
             ))}
-            <button className="flex min-w-30 items-center justify-center gap-2 rounded-2xl border border-black/20 bg-card p-3 text-md font-bold text-black/80 transition hover:border-brand/40 hover:text-foreground">
-              <MoreHorizontal className="h-4 w-4" /> More
-              <ChevronDown className="h-4 w-4" />
-            </button>
+            <CategoryDropdown />
           </div>
         </section>
 
