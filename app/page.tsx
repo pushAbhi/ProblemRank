@@ -74,11 +74,13 @@ export default function Home() {
               <p className="mt-1 text-sm text-muted-foreground">Real business problems ranked by opportunity score</p>
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition hover:bg-secondary">
+              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition 
+              hover:border-brand hover:bg-background hover:cursor-pointer">
                 Sort by: <span className="font-semibold">Score (High)</span>
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
-              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition hover:bg-secondary">
+              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition 
+              hover:border-brand hover:bg-background hover:cursor-pointer">
                 <Filter className="h-3.5 w-3.5" /> Filters
               </button>
             </div>
