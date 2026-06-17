@@ -24,14 +24,14 @@ const tones: Record<ProblemRowProps["tone"], string> = {
 
 export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: ProblemRowProps) {
   return (
-    <div className="grid grid-cols-[2rem_auto_minmax(0,1fr)_auto_auto] items-center gap-4 border-t border-border/70 px-4 py-4 transition hover:bg-secondary/40 sm:px-6">
-      <span className="text-sm font-semibold text-muted-foreground">{rank}</span>
+    <div className="grid grid-cols-[2rem_auto_minmax(0,1fr)_auto_auto] items-center gap-3 border-t border-border/70 px-4 py-4 transition hover:bg-secondary/40 sm:px-6">
+      <span className="text-sm font-bold text-black">{rank}</span>
       <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tones[tone]}`}>
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="text-sm font-semibold text-foreground sm:text-[15px]">{title}</span>
+          <span className="text-sm font-semibold text-black sm:text-[15px]">{title}</span>
           <div className="flex flex-wrap gap-1.5">
             {tags.map((t) => (
               <span key={t} className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
