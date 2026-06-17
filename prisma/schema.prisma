@@ -27,3 +27,30 @@ model Post {
   authorId  Int
   author    User    @relation(fields: [authorId], references: [id])
 }
+
+model Tag {
+  id       String    @id @default(cuid())
+  name     String    @unique // e.g., "No-Code", "SMB", "Product"
+  problems Problem[] @relation("ProblemTags")
+}
+
+model Problem {
+  id         String   @id @default(cuid())
+  title      String
+  rank       Int
+  tags       Tag[]    @relation("ProblemTags")
+  score      Float
+  icon       String
+  tone       String
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  label    String    @unique
+  icon     String
+  count    Int
+  tone     String
+  problems Problem[]
+}
