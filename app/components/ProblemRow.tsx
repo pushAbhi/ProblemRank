@@ -41,8 +41,8 @@ export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: Probl
           </div>
         </div>
       </div>
-      <span className="text-lg font-bold tabular-nums text-foreground">{score.toFixed(1)}</span>
-      <TrendingUp className="h-4 w-4 text-success" />
+      <span className="text-lg font-bold tabular-nums text-black">{score.toFixed(1)}</span>
+      <TrendingUp className="h-4 w-4 text-success ml-7 mr-2" />
     </div>
   );
 }

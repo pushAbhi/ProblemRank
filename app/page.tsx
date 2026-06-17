@@ -2,13 +2,23 @@ import {
   LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MoreHorizontal,
   Flame, ChevronDown, Filter, ArrowRight,
   MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
+  LucideIcon,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
 import HeroBanner from "./components/HeroBanner";
 import { CategoryCard } from "./components/CategoryCard";
 import { ProblemRow } from "./components/ProblemRow";
+import { ElementType } from "react";
 
-const categories = [
+interface Category {
+  icon: LucideIcon;
+  label: string;
+  count: string;
+  tone: "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
+  active?: boolean;
+}
+
+const categories: Category[] = [
   { icon: LayoutGrid, label: "All Problems", count: "All categories", tone: "violet" as const, active: true },
   { icon: Megaphone, label: "Marketing", count: "312 problems", tone: "rose" as const },
   { icon: DollarSign, label: "Sales", count: "284 problems", tone: "emerald" as const },
@@ -31,6 +41,9 @@ const problems = [
   { rank: 10, title: "Students struggle to stay organized across different tools", tags: ["Education", "B2C", "Productivity"], score: 7.1, icon: GraduationCap, tone: "fuchsia" as const },
 ];
 
+const mainCategories = categories.slice(0, 5);
+const moreCategories = categories.slice(5);
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-secondary">
@@ -44,10 +57,10 @@ export default function Home() {
           <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
 
           <div className="mt-5 flex gap-3 overflow-x-auto pb-2 pt-2 scrollbar-thin">
-            {categories.map((c) => (
+            {mainCategories.map((c) => (
               <CategoryCard key={c.label} {...c} />
             ))}
-            <button className="flex min-w-30 items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-card p-3 text-sm font-medium text-muted-foreground transition hover:border-brand/40 hover:text-foreground">
+            <button className="flex min-w-30 items-center justify-center gap-2 rounded-2xl border border-black/20 bg-card p-3 text-md font-bold text-black/80 transition hover:border-brand/40 hover:text-foreground">
               <MoreHorizontal className="h-4 w-4" /> More
               <ChevronDown className="h-4 w-4" />
             </button>
@@ -55,7 +68,7 @@ export default function Home() {
         </section>
 
         {/* Top Problems */}
-        <section className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        <section className="mt-10 overflow-hidden rounded-3xl border border-black/20 bg-card shadow-card">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 p-5 sm:flex sm:items-center sm:justify-between sm:p-6">
             <div className="min-w-0">
               <div className="flex items-center gap-2">
@@ -65,11 +78,11 @@ export default function Home() {
               <p className="mt-1 text-sm text-muted-foreground">Real business problems ranked by opportunity score</p>
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              <button className="flex items-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-xs font-medium transition hover:bg-secondary">
+              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition hover:bg-secondary">
                 Sort by: <span className="font-semibold">Score (High)</span>
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
-              <button className="flex items-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-xs font-medium transition hover:bg-secondary">
+              <button className="flex items-center gap-2 rounded-full border border-muted-foreground bg-secondary px-3 py-2 text-xs font-medium transition hover:bg-secondary">
                 <Filter className="h-3.5 w-3.5" /> Filters
               </button>
             </div>
