@@ -7,7 +7,9 @@
 
   /* Surfaces */
   --color-background: #f4f4f9;
-  --color-secondary: #f3f4f6;
+  --color-secondary: #fafbfe;
+  --color-hover-dark: #f3f4f6;
+  --color-card-hover-blue: #f7f4fd;
 
   /* Typography */
   --color-foreground: #501fef;

@@ -24,7 +24,7 @@ const tones: Record<ProblemRowProps["tone"], string> = {
 
 export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: ProblemRowProps) {
   return (
-    <div className="grid grid-cols-[2rem_auto_minmax(0,1fr)_auto_auto] items-center gap-3 border-t border-border/70 px-4 py-4 transition hover:bg-secondary/40 sm:px-6">
+    <div className="grid grid-cols-[2rem_auto_minmax(0,1fr)_auto_auto] items-center gap-3 border-t border-muted-foreground/30 px-4 py-4 transition hover:bg-hover-dark/50 sm:px-6">
       <span className="text-sm font-bold text-black">{rank}</span>
       <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tones[tone]}`}>
         <Icon className="h-5 w-5" />
