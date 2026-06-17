@@ -66,7 +66,8 @@ export default function CategoryDropdown() {
         <div className="relative" ref={ref}>
             <button 
             onClick={() => setOpen((prev) => !prev)}
-            className="flex min-w-30 items-center justify-center gap-2 rounded-2xl border border-black/20 bg-card p-3 text-md font-bold text-black/80 transition hover:border-brand/40 hover:text-foreground">
+            className="flex min-w-30 py-6 px-5 shadow-lg items-center justify-center gap-2 rounded-2xl border border-black/20 bg-card text-md font-bold text-black/80 transition 
+            hover:border-brand/40 hover:text-foreground hover:cursor-pointer">
                 <MoreHorizontal className="h-4 w-4" /> More
                 <ChevronDown className="h-4 w-4" />
         </button>
