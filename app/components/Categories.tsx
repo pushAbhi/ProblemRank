@@ -1,10 +1,6 @@
 "use client"
 
-import {
-  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MoreHorizontal,
-  Flame, ChevronDown, Filter, ArrowRight,
-  MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
-  LucideIcon,
+import { LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, LucideIcon,
 } from "lucide-react";
 
 import { useEffect } from "react"
