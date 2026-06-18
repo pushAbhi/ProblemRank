@@ -1,15 +1,9 @@
 
 import Navbar from "./components/Navbar";
 import HeroBanner from "./components/HeroBanner";
-import { CategoryCard } from "./components/CategoryCard";
 import { ProblemRow } from "./components/ProblemRow";
-import CategoryDropdown from "./components/CategoryDropDown";
 import Categories from "./components/Categories";
-import {
-  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MoreHorizontal,
-  Flame, ChevronDown, Filter, ArrowRight,
-  MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
-  LucideIcon,
+import { Megaphone, Flame, ChevronDown, Filter, ArrowRight, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
 } from "lucide-react";
 
 
