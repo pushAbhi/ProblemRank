@@ -1,32 +1,17 @@
+
+import Navbar from "./components/Navbar";
+import HeroBanner from "./components/HeroBanner";
+import { CategoryCard } from "./components/CategoryCard";
+import { ProblemRow } from "./components/ProblemRow";
+import CategoryDropdown from "./components/CategoryDropDown";
+import Categories from "./components/Categories";
 import {
   LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MoreHorizontal,
   Flame, ChevronDown, Filter, ArrowRight,
   MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
   LucideIcon,
 } from "lucide-react";
-import Navbar from "./components/Navbar";
-import HeroBanner from "./components/HeroBanner";
-import { CategoryCard } from "./components/CategoryCard";
-import { ProblemRow } from "./components/ProblemRow";
-import CategoryDropdown from "./components/CategoryDropDown";
 
-interface Category {
-  icon: LucideIcon;
-  label: string;
-  count: string;
-  tone: "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
-  active?: boolean;
-}
-
-const categories: Category[] = [
-  { icon: LayoutGrid, label: "All Problems", count: "All categories", tone: "violet" as const, active: true },
-  { icon: Megaphone, label: "Marketing", count: "312 problems", tone: "rose" as const },
-  { icon: DollarSign, label: "Sales", count: "284 problems", tone: "emerald" as const },
-  { icon: Search, label: "SEO", count: "156 problems", tone: "sky" as const },
-  { icon: Package, label: "Product", count: "198 problems", tone: "orange" as const },
-  { icon: Smile, label: "Customer Success", count: "167 problems", tone: "amber" as const },
-  { icon: Settings, label: "Operations", count: "142 problems", tone: "slate" as const },
-];
 
 const problems = [
   { rank: 1, title: "Small businesses struggle with consistent customer support", tags: ["SaaS", "B2B", "Customer Success"], score: 9.2, icon: MessageSquare, tone: "emerald" as const },
@@ -41,7 +26,6 @@ const problems = [
   { rank: 10, title: "Students struggle to stay organized across different tools", tags: ["Education", "B2C", "Productivity"], score: 7.1, icon: GraduationCap, tone: "fuchsia" as const },
 ];
 
-const mainCategories = categories.slice(0, 5);
 
 export default function Home() {
   return (
@@ -51,17 +35,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Categories */}
-        <section>
-          <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Choose a problem area</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
-
-          <div className="mt-5 flex gap-3 overflow-y-visible pb-2 pt-2 scrollbar-thin">
-            {mainCategories.map((c) => (
-              <CategoryCard key={c.label} {...c} />
-            ))}
-            <CategoryDropdown />
-          </div>
-        </section>
+        <Categories />
 
         {/* Top Problems */}
         <section className="mt-10 overflow-hidden rounded-3xl border border-black/20 bg-card shadow-card">
