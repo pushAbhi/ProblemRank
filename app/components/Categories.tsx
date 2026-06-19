@@ -22,7 +22,7 @@ export default function Categories() {
     const [categories, setCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
 
     useEffect(() => {
-      fetch("/api/categories")
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
       .then((res) => res.json())
       .then((data) => {
         const formattedData = data.map((item: CategoryCardProps) => ({
