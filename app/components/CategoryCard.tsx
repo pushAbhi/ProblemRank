@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 export interface CategoryCardProps {
   icon: LucideIcon;
   label: string;
-  count: string;
+  count: number;
   tone: "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
   active?: boolean;
 }

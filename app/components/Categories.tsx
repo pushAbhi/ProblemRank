@@ -1,44 +1,48 @@
 "use client"
 
-import { LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, LucideIcon,
-} from "lucide-react";
+import * as Icons from "lucide-react";
+import type {LucideIcon} from "lucide-react";
+import { Settings } from "lucide-react";
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { CategoryCard } from "./CategoryCard";
 import CategoryDropdown from "./CategoryDropDown";
 
+export type Tone = "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
 
-interface Category {
+export interface CategoryCardProps {
   icon: LucideIcon;
   label: string;
-  count: string;
-  tone: "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
+  count: number;
+  tone: Tone;
   active?: boolean;
 }
 
-const categories: Category[] = [
-  { icon: LayoutGrid, label: "All Problems", count: "All categories", tone: "violet" as const, active: true },
-  { icon: Megaphone, label: "Marketing", count: "312 problems", tone: "rose" as const },
-  { icon: DollarSign, label: "Sales", count: "284 problems", tone: "emerald" as const },
-  { icon: Search, label: "SEO", count: "156 problems", tone: "sky" as const },
-  { icon: Package, label: "Product", count: "198 problems", tone: "orange" as const },
-  { icon: Smile, label: "Customer Success", count: "167 problems", tone: "amber" as const },
-  { icon: Settings, label: "Operations", count: "142 problems", tone: "slate" as const },
-];
-
-const mainCategories = categories.slice(0, 5);
-
 export default function Categories() {
+    const [categories, setCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
+
     useEffect(() => {
+      fetch("/api/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        const formattedData = data.map((item: CategoryCardProps) => ({
+          ...item,
+          tone: item.tone as Tone,
+          icon: Icons.HelpCircle
+        }))
+        setCategories(formattedData);
+      })
+      .catch((err) => console.log("Error Fetching client", err))
     }, [])
+
     return (
     <section>
           <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Choose a problem area</h1>
           <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
 
           <div className="mt-5 flex gap-3 overflow-y-visible pb-2 pt-2 scrollbar-thin">
-            {mainCategories.map((c) => (
-              <CategoryCard key={c.label} {...c} />
+            {categories.map((c) => (
+              <CategoryCard key={c.label} label={c.label} icon={c.icon} count={c.count} tone={c.tone} active={false} />
             ))}
             <CategoryDropdown />
           </div>
