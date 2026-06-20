@@ -3,9 +3,9 @@
 import {MoreHorizontal,ChevronDown} from "lucide-react";
 
 import { useState, useRef, useEffect } from "react";
-import { CategoryCard } from "./CategoryCard";
+import { CategoryCard, CategoryCardProps } from "./CategoryCard";
 
-export default function CategoryDropdown({ categories }: any) {
+export default function CategoryDropdown({ categories }: {categories: CategoryCardProps[]}) {
     const [open, setOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -32,7 +32,7 @@ export default function CategoryDropdown({ categories }: any) {
 
         {open && (
         <div className="absolute left-0 top-full z-50 mt-2 flex flex-col gap-2 rounded-2xl border border-black/10 bg-card p-3 shadow-lg">
-          {categories?.map((c: any) => (
+          {categories?.map((c: CategoryCardProps) => (
             <CategoryCard key={c.label} label={c.label} icon={c.icon} count={c.count} tone={c.tone} active={false} />
           ))}
         </div>
