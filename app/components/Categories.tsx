@@ -20,9 +20,11 @@ export interface CategoryCardProps {
 
 export default function Categories() {
     const [categories, setCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
+    const [displayCategories, setDisplayCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
+    const [moreCategories, setMoreCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
 
     useEffect(() => {
-      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
+      fetch(`/api/categories`)
       .then((res) => res.json())
       .then((data) => {
         const formattedData = data.map((item: CategoryCardProps) => ({
@@ -31,6 +33,8 @@ export default function Categories() {
           icon: Icons.HelpCircle
         }))
         setCategories(formattedData);
+        setDisplayCategories(formattedData.slice(0,4))
+        setMoreCategories(formattedData.slice(4, 6))
       })
       .catch((err) => console.log("Error Fetching client", err))
     }, [])
@@ -41,10 +45,10 @@ export default function Categories() {
           <p className="mt-1 text-sm text-muted-foreground">Explore problems across different business functions</p>
 
           <div className="mt-5 flex gap-3 overflow-y-visible pb-2 pt-2 scrollbar-thin">
-            {categories.map((c) => (
+            {displayCategories.map((c) => (
               <CategoryCard key={c.label} label={c.label} icon={c.icon} count={c.count} tone={c.tone} active={false} />
             ))}
-            <CategoryDropdown />
+            <CategoryDropdown categories={moreCategories} /> 
           </div>
         </section>
     )
