@@ -19,7 +19,6 @@ export interface CategoryCardProps {
 }
 
 export default function Categories() {
-    const [categories, setCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
     const [displayCategories, setDisplayCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
     const [moreCategories, setMoreCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
 
@@ -32,7 +31,6 @@ export default function Categories() {
           tone: item.tone as Tone,
           icon: Icons.HelpCircle
         }))
-        setCategories(formattedData);
         setDisplayCategories(formattedData.slice(0,4))
         setMoreCategories(formattedData.slice(4, 6))
       })

@@ -3,7 +3,7 @@
 import {MoreHorizontal,ChevronDown} from "lucide-react";
 
 import { useState, useRef, useEffect } from "react";
-import { CategoryCard, CategoryCardProps } from "./CategoryCard";
+import { CategoryCard } from "./CategoryCard";
 
 export default function CategoryDropdown({ categories }: any) {
     const [open, setOpen] = useState(false);
