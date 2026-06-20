@@ -1,14 +1,17 @@
 "use client"
 
-import * as Icons from "lucide-react";
 import type {LucideIcon} from "lucide-react";
-import { Settings } from "lucide-react";
-
 import { useEffect, useState } from "react"
 import { CategoryCard } from "./CategoryCard";
 import CategoryDropdown from "./CategoryDropDown";
 
+import {LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, HelpCircle} from "lucide-react"
+
 export type Tone = "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
+
+const Icons: Record<string, LucideIcon> = {
+  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings
+}
 
 export interface CategoryCardProps {
   icon: LucideIcon;
@@ -19,8 +22,8 @@ export interface CategoryCardProps {
 }
 
 export default function Categories() {
-    const [displayCategories, setDisplayCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
-    const [moreCategories, setMoreCategories] = useState<CategoryCardProps[]>([{ label: "Settingss", tone:"violet", icon:Settings, count:23 } ]);
+    const [displayCategories, setDisplayCategories] = useState<CategoryCardProps[]>([{ label: "Settings", tone:"violet", icon:HelpCircle, count:23 } ]);
+    const [moreCategories, setMoreCategories] = useState<CategoryCardProps[]>([{ label: "Settings", tone:"violet", icon:HelpCircle, count:23 } ]);
 
     useEffect(() => {
       fetch(`/api/categories`)
@@ -29,7 +32,7 @@ export default function Categories() {
         const formattedData = data.map((item: CategoryCardProps) => ({
           ...item,
           tone: item.tone as Tone,
-          icon: Icons.HelpCircle
+          icon: Icons[item.icon as unknown as string] ?? HelpCircle
         }))
         setDisplayCategories(formattedData.slice(0,4))
         setMoreCategories(formattedData.slice(4, 6))
