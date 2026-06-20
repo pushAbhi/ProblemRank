@@ -30,7 +30,7 @@ export function CategoryCard({ icon: Icon, label, count, tone, active }: Categor
       </div>
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold">{label}</div>
-        <div className="truncate text-xs text-muted-foreground">{count}</div>
+        <div className="truncate text-xs text-muted-foreground">{count} Problems</div>
       </div>
     </button>
   );
