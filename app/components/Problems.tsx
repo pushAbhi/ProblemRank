@@ -3,24 +3,22 @@
 import { ProblemRow } from "@/app/components/ProblemRow";
 import { ChevronDown, Filter, ArrowRight, GraduationCap, HelpCircle } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ProblemRowProps } from "@/app/components/ProblemRow";
-import { Tone } from "./Categories";
-import { Icons } from "./Categories";
+import { ProblemRowProps, Tone, Icons } from "../types";
 
 import prisma from "@/lib/prisma"
 
-export async function topProblems() {
-  const raw = await prisma.problem.findMany({
-    include: {tags: true}
-  })
+// export async function topProblems() {
+//   const raw = await prisma.problem.findMany({
+//     include: {tags: true}
+//   })
 
-  const data = raw.map((item) => ({
-    ...item,
-    tone: item.tone as Tone,
-    icon: Icons[item.icon as unknown as string] ?? HelpCircle,
-    tags: item.tags ?? []
-  }))
-} 
+//   const data = raw.map((item) => ({
+//     ...item,
+//     tone: item.tone as Tone,
+//     icon: Icons[item.icon as unknown as string] ?? HelpCircle,
+//     tags: item.tags ?? []
+//   }))
+// } 
 
 export default function Problems() {
     const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: [{id: "dummy ignore", name:"Education"}], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);

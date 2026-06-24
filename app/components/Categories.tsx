@@ -1,25 +1,9 @@
 "use client"
-
-import type {LucideIcon} from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import { useEffect, useState } from "react"
 import { CategoryCard } from "./CategoryCard";
 import CategoryDropdown from "./CategoryDropDown";
-
-import {LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, HelpCircle, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot} from "lucide-react"
-
-export type Tone = "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
-
-export const Icons: Record<string, LucideIcon> = {
-  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot
-}
-
-export interface CategoryCardProps {
-  icon: LucideIcon;
-  label: string;
-  count: number;
-  tone: Tone;
-  active?: boolean;
-}
+import { Tone, Icons, CategoryCardProps } from "../types";
 
 export default function Categories() {
     const [displayCategories, setDisplayCategories] = useState<CategoryCardProps[]>([{ label: "Settings", tone:"violet", icon:HelpCircle, count:23 } ]);
