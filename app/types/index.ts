@@ -36,7 +36,7 @@ export interface ProblemRowProps {
 }
 
 export interface CategoryCardProps {
-  icon: LucideIcon;
+  icon: string;
   label: string;
   count: number;
   tone: Tone;

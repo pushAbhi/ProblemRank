@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
 import {MoreHorizontal,ChevronDown} from "lucide-react";
-
 import { useState, useRef, useEffect } from "react";
-import { CategoryCard, CategoryCardProps } from "./CategoryCard";
+import { CategoryCard } from "./CategoryCard";
+import { CategoryCardProps } from "../types";
+
 
 export default function CategoryDropdown({ categories }: {categories: CategoryCardProps[]}) {
     const [open, setOpen] = useState(false);
