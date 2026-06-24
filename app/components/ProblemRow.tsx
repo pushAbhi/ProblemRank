@@ -33,7 +33,7 @@ export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: Probl
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <span className="text-sm font-semibold text-black sm:text-[15px]">{title}</span>
           <div className="flex flex-wrap gap-1.5">
-            {(tags ?? []).map((t) => (
+            {tags.map((t) => (
               <span key={t} className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
                 {t}
               </span>

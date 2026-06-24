@@ -17,7 +17,8 @@ export default function Problems() {
             const formattedData = data.map((item: ProblemRowProps) => ({
                 ...item,
                 tone: item.tone as Tone,
-                icon: Icons[item.icon as unknown as string] ?? HelpCircle
+                icon: Icons[item.icon as unknown as string] ?? HelpCircle,
+                tags: item.tags ?? []
             }))
             setProblems(formattedData);
         })
