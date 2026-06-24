@@ -1,21 +1,21 @@
-import { ProblemRow } from "@/app/components/ProblemRow";
-import { Megaphone, ChevronDown, Filter, ArrowRight, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot, GraduationCap,
-} from "lucide-react";
+"use client"
 
-const problems = [
-  { rank: 1, title: "Small businesses struggle with consistent customer support", tags: ["SaaS", "B2B", "Customer Success"], score: 9.2, icon: MessageSquare, tone: "emerald" as const },
-  { rank: 2, title: "Creators need better tools to sell digital products", tags: ["Creator Economy", "B2C", "Product"], score: 8.7, icon: Box, tone: "violet" as const },
-  { rank: 3, title: "Freelancers find it hard to manage multiple clients", tags: ["Productivity", "B2B", "Operations"], score: 8.3, icon: Users, tone: "orange" as const },
-  { rank: 4, title: "Companies lack visibility into team productivity", tags: ["Enterprise", "B2B", "Operations"], score: 8.1, icon: BarChart3, tone: "sky" as const },
-  { rank: 5, title: "People want personalized health guidance that's actionable", tags: ["Health", "B2C", "Product"], score: 7.9, icon: Heart, tone: "rose" as const },
-  { rank: 6, title: "E-commerce brands struggle with abandoned carts", tags: ["E-commerce", "D2C", "Marketing"], score: 7.8, icon: ShoppingCart, tone: "amber" as const },
-  { rank: 7, title: "Teams need simpler security compliance workflows", tags: ["SaaS", "B2B", "Operations"], score: 7.6, icon: Shield, tone: "indigo" as const },
-  { rank: 8, title: "Marketers can't prove content actually drives revenue", tags: ["Marketing", "B2B", "Growth"], score: 7.4, icon: Megaphone, tone: "pink" as const },
-  { rank: 9, title: "Non-technical teams need easier automation tools", tags: ["No-Code", "SMB", "Product"], score: 7.2, icon: Bot, tone: "lime" as const },
-  { rank: 10, title: "Students struggle to stay organized across different tools", tags: ["Education", "B2C", "Productivity"], score: 7.1, icon: GraduationCap, tone: "fuchsia" as const },
-];
+import { ProblemRow } from "@/app/components/ProblemRow";
+import { ChevronDown, Filter, ArrowRight, GraduationCap } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ProblemRowProps } from "@/app/components/ProblemRow";
 
 export default function Problems() {
+    const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: ["Education"], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);
+
+    useEffect(()=> {
+        fetch('/api/problems')
+        .then((res) => res.json())
+        .then((data) => {
+            setProblems(data);
+        })
+        .catch((err)=>console.log("error loading problems", err))
+    }, [])
     return(
         <section className="mt-10 overflow-hidden rounded-3xl border border-black/20 bg-card shadow-card">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 p-5 sm:flex sm:items-center sm:justify-between sm:p-6">
