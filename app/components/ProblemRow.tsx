@@ -1,5 +1,8 @@
 import { TrendingUp, type LucideIcon } from "lucide-react";
 
+export type Tone =
+  "emerald" | "violet" | "orange" | "sky" | "rose" | "amber" | "indigo" | "pink" | "lime" | "fuchsia"
+
 interface Tag {
   id: string,
   name: string
