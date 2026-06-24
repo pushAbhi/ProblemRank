@@ -1,31 +1,5 @@
-import { TrendingUp, type LucideIcon } from "lucide-react";
-
-interface Tag {
-  id: string,
-  name: string
-}
-
-export interface ProblemRowProps {
-  rank: number;
-  title: string;
-  tags: Tag[];
-  score: number;
-  icon: LucideIcon;
-  tone: "emerald" | "violet" | "orange" | "sky" | "rose" | "amber" | "indigo" | "pink" | "lime" | "fuchsia";
-}
-
-const tones: Record<ProblemRowProps["tone"], string> = {
-  emerald: "bg-emerald-100 text-emerald-600",
-  violet: "bg-violet-100 text-violet-600",
-  orange: "bg-orange-100 text-orange-600",
-  sky: "bg-sky-100 text-sky-600",
-  rose: "bg-rose-100 text-rose-600",
-  amber: "bg-amber-100 text-amber-600",
-  indigo: "bg-indigo-100 text-indigo-600",
-  pink: "bg-pink-100 text-pink-600",
-  lime: "bg-lime-100 text-lime-600",
-  fuchsia: "bg-fuchsia-100 text-fuchsia-600",
-};
+import { TrendingUp } from "lucide-react";
+import { ProblemRowProps, tones } from "../types";
 
 export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: ProblemRowProps) {
   return (
