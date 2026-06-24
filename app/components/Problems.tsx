@@ -1,18 +1,26 @@
 "use client"
 
 import { ProblemRow } from "@/app/components/ProblemRow";
-import { ChevronDown, Filter, ArrowRight, GraduationCap } from "lucide-react";
+import { ChevronDown, Filter, ArrowRight, GraduationCap, HelpCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ProblemRowProps } from "@/app/components/ProblemRow";
+import { Tone } from "./Categories";
+import { Icons } from "./Categories";
 
 export default function Problems() {
-    const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: ["Education"], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);
+    const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: [{id: "dummy ignore", name:"Education"}], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);
 
     useEffect(()=> {
         fetch('/api/problems')
         .then((res) => res.json())
         .then((data) => {
-            setProblems(data);
+            const formattedData = data.map((item: ProblemRowProps) => ({
+                ...item,
+                tone: item.tone as Tone,
+                icon: Icons[item.icon as unknown as string] ?? HelpCircle,
+                tags: item.tags ?? []
+            }))
+            setProblems(formattedData);
         })
         .catch((err)=>console.log("error loading problems", err))
     }, [])

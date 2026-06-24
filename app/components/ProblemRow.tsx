@@ -1,9 +1,14 @@
 import { TrendingUp, type LucideIcon } from "lucide-react";
 
+interface Tag {
+  id: string,
+  name: string
+}
+
 export interface ProblemRowProps {
   rank: number;
   title: string;
-  tags: string[];
+  tags: Tag[];
   score: number;
   icon: LucideIcon;
   tone: "emerald" | "violet" | "orange" | "sky" | "rose" | "amber" | "indigo" | "pink" | "lime" | "fuchsia";
@@ -34,8 +39,8 @@ export function ProblemRow({ rank, title, tags, score, icon: Icon, tone }: Probl
           <span className="text-sm font-semibold text-black sm:text-[15px]">{title}</span>
           <div className="flex flex-wrap gap-1.5">
             {tags.map((t) => (
-              <span key={t} className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                {t}
+              <span key={t.id} className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                {t.name}
               </span>
             ))}
           </div>
