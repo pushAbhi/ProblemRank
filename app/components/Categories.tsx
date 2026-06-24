@@ -5,12 +5,12 @@ import { useEffect, useState } from "react"
 import { CategoryCard } from "./CategoryCard";
 import CategoryDropdown from "./CategoryDropDown";
 
-import {LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, HelpCircle} from "lucide-react"
+import {LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, HelpCircle, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot} from "lucide-react"
 
 export type Tone = "violet" | "rose" | "emerald" | "sky" | "orange" | "amber" | "slate";
 
-const Icons: Record<string, LucideIcon> = {
-  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings
+export const Icons: Record<string, LucideIcon> = {
+  LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot
 }
 
 export interface CategoryCardProps {
