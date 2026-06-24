@@ -8,7 +8,7 @@ import { Tone } from "./Categories";
 import { Icons } from "./Categories";
 
 export default function Problems() {
-    const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: ["Education"], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);
+    const [problems, setProblems] = useState<ProblemRowProps[]>([{ rank: 0, title: "test", tags: [{id: "dummy ignore", name:"Education"}], score: 7.1, icon: GraduationCap, tone: "lime" as const }]);
 
     useEffect(()=> {
         fetch('/api/problems')
