@@ -1,8 +1,8 @@
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
 import Image from "next/image"
 import Link from "next/link";
 
-const navItems = ["Problems", "Categories", "Industries", "Leaderboard"];
+const navItems = ["Problems", "Blogs"];
 
 export default function Navbar() {
   return (
@@ -28,9 +28,6 @@ export default function Navbar() {
               {item}
             </a>
           ))}
-          <button className="flex items-center gap-1 text-sm font-bold transition hover:text-foreground">
-            Resources <ChevronDown className="h-4 w-4" />
-          </button>
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
