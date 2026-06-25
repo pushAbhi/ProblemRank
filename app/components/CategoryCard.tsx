@@ -5,8 +5,10 @@ export function CategoryCard({ icon, label, count, tone, active, onClick }: Cate
   const Icon = Icons[icon] ?? HelpCircle
   return (
     <button
-      className={`group flex min-w-45 items-center justify-start gap-3 rounded-2xl bg-card p-3 text-left shadow-lg border border-black/20 transition hover:-translate-y-0.5 hover:border-brand/40 ${
-        active ? "border-brand/60 ring-2 bg-card-hover-blue ring-brand/15" : "border-border"
+      className={`group flex min-w-45 items-center justify-start gap-3 rounded-2xl p-3 text-left shadow-lg border transition-transform 
+        hover:-translate-y-0.5 hover:border-brand/40 ${
+        active ? "border-brand/60 ring-2 bg-card-hover-blue ring-brand/15" 
+        : "border-black/20 bg-card"
       }`}
         onClick={onClick}
     >
