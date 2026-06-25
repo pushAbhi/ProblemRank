@@ -1,5 +1,6 @@
 import { Search, ChevronDown } from "lucide-react";
 import Image from "next/image"
+import Link from "next/link";
 
 const navItems = ["Problems", "Categories", "Industries", "Leaderboard"];
 
@@ -7,10 +8,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
-        <a href="/" className="flex shrink-0 items-center gap-2">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
           <Image src="/logo.svg" alt="logo" width={35} height={35} />
           <span className="font-display text-lg font-extrabold tracking-tight">ProblemRank</span>
-        </a>
+        </Link>
 
         <div className="relative hidden flex-1 max-w-md md:block">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
