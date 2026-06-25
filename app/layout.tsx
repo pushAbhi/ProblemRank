@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ProblemRank — Discover and rank real business problems",
   description: "Validate and rank real-world business problems before building solutions.",
+  icons : {
+    icon: "/favicon/favicon.ico",
+    apple: "/favicon/apple-touch-icon.png",
+    
+  }
 };
 
 export default function RootLayout({
