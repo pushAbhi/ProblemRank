@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ProblemRank — Discover and rank real business problems",
   description: "Validate and rank real-world business problems before building solutions.",
+  icons : {
+    icon: "/favicon/favicon.ico",
+    apple: "/favicon/apple-touch-icon.png",
+    
+  }
 };
 
 export default function RootLayout({
@@ -27,7 +31,6 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
-        <Analytics />
       </body>
     </html>
   );

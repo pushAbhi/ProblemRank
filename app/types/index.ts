@@ -41,4 +41,5 @@ export interface CategoryCardProps {
   count: number;
   tone: Tone;
   active?: boolean;
+  onClick?: () => void
 }
