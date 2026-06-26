@@ -1,9 +1,9 @@
-import Navbar from "./components/Navbar";
-import HeroBanner from "./components/HeroBanner";
-import Categories from "./components/Categories";
-import Footer from "./components/Footer"
-import Problems from "./components/Problems";
-import SignIn from "./components/sign-in";
+import Navbar from "@/components/Navbar";
+import HeroBanner from "@/components/HeroBanner";
+import Categories from "@/components/Categories";
+import Footer from "@/components/Footer"
+import Problems from "@/components/Problems";
+import SignIn from "@/components/sign-in";
 
 export default function Home() {
   return (
