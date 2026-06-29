@@ -1,10 +1,16 @@
+"use client"
+
 import { Search } from "lucide-react";
 import Image from "next/image"
 import Link from "next/link";
+import NavbarSessionComps from "./NavbarSessionComps";
+import { SessionProvider } from "next-auth/react";
 
 const navItems = ["Problems", "Blogs"];
 
 export default function Navbar(){
+
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
@@ -34,12 +40,12 @@ export default function Navbar(){
           <button className="hidden rounded-2xl border border-border px-4 py-2 text-sm font-bold text-foreground transition sm:inline-flex hover:bg-foreground hover:text-secondary hover:cursor-pointer">
             Submit a problem
           </button>
-          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer">
-            log in
-          </button>
-          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer">
-            Sign up
-          </button>
+
+          {/*signIn login buttons */}
+          <SessionProvider>
+            <NavbarSessionComps />
+          </SessionProvider>
+
         </div>
       </div>
     </header>

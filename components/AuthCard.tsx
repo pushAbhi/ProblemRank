@@ -1,26 +1,35 @@
 "use client"
 
 import { useState } from "react";
-import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { User, Mail, Lock, Eye, EyeOff, X } from "lucide-react";
 import SignInButton from "./SignInButton";
+import { AuthModelProps } from "@/types";
 
-export default function AuthCard() {
+export default function AuthCard({isAuthOpen, setAuthOpen}: AuthModelProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  if (!isAuthOpen) return null;
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4 fixed z-50 inset-0 bg-background/30">
       <div
-        className="w-full max-w-sm rounded-2xl p-8 flex flex-col items-center gap-6 bg-card">
-        {/* User Avatar Icon */}
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center bg-card-hover-blue">
-          <User
-            className="w-8 h-8"
-            style={{ color: "var(--color-foreground)" }}
-            strokeWidth={1.5}/>
-        </div>
+        className="w-full max-w-sm rounded-2xl p-8 flex flex-col items-center gap-6 bg-card relative">
+                <button className="absolute top-6 right-6 border border-secondary p-1 rounded-full
+                hover:text-foreground"
+                onClick={() => setAuthOpen(false)}>
+                  <X size={15} strokeWidth={4}/>
+                </button>
+            {/* User Avatar Icon */}
+            <div
+              className="w-16 h-16 rounded-full flex items-center justify-center bg-card-hover-blue">
+              <User
+                className="w-8 h-8"
+                style={{ color: "var(--color-foreground)" }}
+                strokeWidth={1.5}/>
+            </div>
+
 
         {/* Heading */}
         <div className="text-center space-y-1">

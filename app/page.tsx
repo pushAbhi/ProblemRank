@@ -3,7 +3,6 @@ import HeroBanner from "@/components/HeroBanner";
 import Categories from "@/components/Categories";
 import Footer from "@/components/Footer"
 import Problems from "@/components/Problems";
-import AuthCard from "@/components/AuthCard";
 
 export default function Home() {
   return (
