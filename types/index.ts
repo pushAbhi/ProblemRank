@@ -43,3 +43,5 @@ export interface CategoryCardProps {
   active?: boolean;
   onClick?: () => void
 }
+
+export type SigninProvider = "github" | "google" | "linkedin"
