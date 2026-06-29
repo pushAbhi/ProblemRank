@@ -1,10 +1,22 @@
+"use client"
+
 import { Search } from "lucide-react";
 import Image from "next/image"
 import Link from "next/link";
+import AuthCard from "./AuthCard";
+import { Dispatch, SetStateAction, useState } from "react";
 
 const navItems = ["Problems", "Blogs"];
 
+export interface AuthModelProps {
+  isAuthOpen: boolean,
+  setAuthOpen: Dispatch<SetStateAction<boolean>>;
+}
+
 export default function Navbar(){
+
+  const [isAuthOpen, setAuthOpen] = useState(false)
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
@@ -34,12 +46,18 @@ export default function Navbar(){
           <button className="hidden rounded-2xl border border-border px-4 py-2 text-sm font-bold text-foreground transition sm:inline-flex hover:bg-foreground hover:text-secondary hover:cursor-pointer">
             Submit a problem
           </button>
-          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer">
+          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer"
+          onClick={() => setAuthOpen(true)}>
             log in
           </button>
-          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer">
+          <button className="rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold border border-foreground bg-foreground text-background shadow-glow transition hover:opacity-95 hover:bg-secondary hover:text-foreground hover:border-foreground hover:cursor-pointer"
+          onClick={() => setAuthOpen(true)}>
             Sign up
           </button>
+          {isAuthOpen && (
+            <AuthCard isAuthOpen={isAuthOpen} setAuthOpen={setAuthOpen}/>
+            )
+          }
         </div>
       </div>
     </header>
