@@ -47,12 +47,9 @@ cd problemrank
 npm install
 ```
 
-### 3. Set up your database
-You need a Postgres database. Create a `.env` file in the root:
-```
-DATABASE_URL="postgresql://user:password@host:port/dbname"
-```
-(`prisma.config.ts` and `lib/prisma.ts` both read this.)
+### 3. Set up your database and keys
+Create a `.env` file in the root
+Fill in the keys (DATABASE_URL + others).
 
 ### 4. Generate the Prisma client and push the schema
 ```bash
