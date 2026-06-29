@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { User, Mail, Lock, Eye, EyeOff, X } from "lucide-react";
 import SignInButton from "./SignInButton";
-import { AuthModelProps } from "./Navbar";
+import { AuthModelProps } from "@/types";
 
 export default function AuthCard({isAuthOpen, setAuthOpen}: AuthModelProps) {
   const [showPassword, setShowPassword] = useState(false);

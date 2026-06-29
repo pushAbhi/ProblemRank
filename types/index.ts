@@ -1,5 +1,6 @@
 import type {LucideIcon} from "lucide-react";
 import {LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot} from "lucide-react"
+import { Dispatch, SetStateAction } from "react";
 
 export const Icons: Record<string, LucideIcon> = {
   LayoutGrid, Megaphone, DollarSign, Search, Package, Smile, Settings, MessageSquare, Box, Users, BarChart3, Heart, ShoppingCart, Shield, Bot
@@ -45,3 +46,8 @@ export interface CategoryCardProps {
 }
 
 export type SigninProvider = "github" | "google" | "linkedin"
+
+export interface AuthModelProps {
+  isAuthOpen: boolean,
+  setAuthOpen: Dispatch<SetStateAction<boolean>>;
+}
