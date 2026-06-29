@@ -1,9 +1,11 @@
 import prisma from "@/lib/prisma";
 import { Tone } from "../types";
 import CategoriesDiv from "./CategoriesDiv";
+import { cacheLife } from "next/cache";
 
 export async function CategoriesList() {
-
+    "use cache"
+    cacheLife("days")
     const raw = await prisma.category.findMany({})
 
     const data = raw.map((item) => ({

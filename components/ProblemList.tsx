@@ -2,10 +2,13 @@ import { ProblemRow } from "./ProblemRow"
 import prisma from "@/lib/prisma"
 import { Tone, Icons } from "../types"
 import { HelpCircle } from "lucide-react"
+import { cacheLife } from "next/cache"
 
 // the top 10 problem list SSR function
 
 export async function ProblemList() {
+  "use cache"
+  cacheLife("days")
   const raw = await prisma.problem.findMany({
     include: {tags: true}
   })
