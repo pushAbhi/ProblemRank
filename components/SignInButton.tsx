@@ -1,16 +1,13 @@
-import { signIn } from "@/app/auth"
+import handleSignIn from "@/lib/handleSignIn"
+import { SigninProvider } from "@/types"
 
-type Provider = "github" | "google" | "linkedin"
-
-export default function SignInButton( {provider}: {provider: Provider} ) {
+export default function SignInButton( {provider}: {provider: SigninProvider} ) {
     return (
         <form
-            action={async () => {
-                "use server"
-                await signIn(provider)
-            }}
-        >
-            <button className="" type="submit">Signin with {provider}</button>
-        </form>
+            action={() => handleSignIn(provider)}
+        >   
+            <button className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl border border-foreground text-sm font-medium text-gray-700 transition-colors hover:bg-hover-dark" 
+            type="submit">Continue with {provider}</button>
+        </form> 
     )
 }

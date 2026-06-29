@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import SignInButton from "./SignInButton";
 
 export default function AuthCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -137,13 +138,8 @@ export default function AuthCard() {
               style={{ backgroundColor: "var(--color-hover-dark)" }}/>
           </div>
 
-          {/* Google Button */}
-          <button
-            type="button"
-            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl border text-sm font-medium text-gray-700 transition-colors hover:bg-hover-dark"
-            style={{ borderColor: "var(--color-hover-dark)" }}>
-            Continue with Google
-          </button>
+          {/* Signin Buttons */}
+          <SignInButton provider="google"/>
         </div>
 
         {/* Sign Up Link */}
