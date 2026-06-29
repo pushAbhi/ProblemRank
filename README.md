@@ -16,16 +16,20 @@ A small web app where people can browse and rank real business problems (instead
 
 ```
 app/
-  components/      # UI pieces (Navbar, HeroBanner, ProblemRow, CategoryCard, ...)
+  api/             # route handlers
   page.tsx          # homepage
+  auth.ts            # handles next-auth
   layout.tsx        # root layout (fonts, analytics)
   globals.css        # Tailwind theme + global styles
 lib/
   prisma.ts         # Prisma client singleton
+components/          # UI pieces (Navbar, HeroBanner, ProblemRow, CategoryCard, ...)
 prisma/
   schema.prisma      # database models (User, Post, Problem, Category, Tag)
-public/
-  logo.svg
+  seed.ts            # seeds prisma db
+public/              # icons imgs
+types/
+  index.ts          # types and interfaces
 ```
 
 ---
