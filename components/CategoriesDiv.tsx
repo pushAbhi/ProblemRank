@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { CategoryCardProps } from "../types"
 import { CategoryCard } from "./CategoryCard"
-import CategoryDropdown from "./CategoryDropDown"
 
 // handles client side selectivity.
 
