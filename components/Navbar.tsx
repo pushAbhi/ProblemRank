@@ -6,11 +6,7 @@ import Link from "next/link";
 import NavbarSessionComps from "./NavbarSessionComps";
 import { SessionProvider } from "next-auth/react";
 
-const navItems = ["Problems", "Blogs"];
-
 export default function Navbar(){
-
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8 justify-between">
