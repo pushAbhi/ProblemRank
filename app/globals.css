@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -18,4 +19,16 @@
   /* Components */
   --background-image-hero-gradient: linear-gradient(90deg, #6366f1, #f43f5e);
   --color-card: #fff;
+
+  /* Fonts */
+  --font-roboto: "Roboto", sans-serif;
+}
+
+.roboto-roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+  "width" 100;
 }

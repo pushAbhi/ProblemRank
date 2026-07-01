@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { CategoryCardProps } from "../types"
 import { CategoryCard } from "./CategoryCard"
-import CategoryDropdown from "./CategoryDropDown"
 
 // handles client side selectivity.
 
@@ -17,11 +16,10 @@ export default function CategoriesDiv({categories}: CategoriesDivProps) {
     const [activeCategory, setActiveCategory] = useState("All Problems")
 
     // splitting categories
-    const displayCategories = categories.slice(0,4)
-    const moreCategories = categories.slice(4,6)
+    const displayCategories = categories.slice(0,6)
 
     return (
-        <div className="mt-5 flex gap-3 overflow-y-visible pb-2 pt-2 scrollbar-thin">
+        <div className="mt-5 flex gap-3 overflow-y-visible overflow-auto pb-2 pt-2 scrollbar-none">
             {displayCategories.map((c) => (
                 <CategoryCard 
                 key={c.label} label={c.label} icon={c.icon} count={c.count} tone={c.tone} 
@@ -29,7 +27,6 @@ export default function CategoriesDiv({categories}: CategoriesDivProps) {
                 onClick={() => setActiveCategory(c.label)}
                 />
             ))}
-            <CategoryDropdown categories={moreCategories} /> 
         </div>
     )
 }
