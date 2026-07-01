@@ -11,7 +11,7 @@ export default function NavbarSessionComps() {
 
     return (
         <div>
-            {session && (
+            {!session && (
                 <div className="flex justify-between gap-1">
                 <button className={BUTTON_STYLE}
                 onClick={() => setAuthOpen(true)}>
@@ -23,7 +23,7 @@ export default function NavbarSessionComps() {
                 </button>
                 </div>
             )}
-            {!session && (
+            {session && (
                 <button className={BUTTON_STYLE}
                 onClick={() => signOut()}
                 >Log out</button>
