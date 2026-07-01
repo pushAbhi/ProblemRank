@@ -31,12 +31,9 @@ export default function Navbar(){
         </div>
 
         <div className="flex gap-5">
-          <nav className="hidden items-center gap-6 lg:flex">
-            {navItems.map((item) => (
-              <a key={item} href="#" className="text-sm font-bold transition hover:text-foreground">
-                {item}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-6 lg:flex   ">
+            <Link href="/problems" className="text-sm font-bold transition hover:text-foreground">Problems</Link>
+            <Link href="/Blogs" className="text-sm font-bold transition hover:text-foreground">Blogs</Link>
           </nav>
 
           <div className="ml-auto flex items-center gap-2 lg:ml-0">

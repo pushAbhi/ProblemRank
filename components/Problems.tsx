@@ -3,6 +3,7 @@ import ProblemListSkeleton from "./ProblemListSkeleton";
 
 import { Suspense } from "react";
 import { ProblemList } from "./ProblemList";
+import Link from "next/link";
 
 export default function Problems() {
   return(
@@ -41,9 +42,9 @@ export default function Problems() {
         </Suspense>
 
         <div className="border-t border-border/70 p-4 text-center">
-          <a href="#" className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
+          <Link href="/problems" className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
             View all problems <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </section>
   );
